@@ -1,10 +1,10 @@
 pipeline {
     agent any
     stages {
-        stage('Quality check') {
-          steps {
-                echo "Quality passed"
-                sh "ls -l"
+        stage('SonarQube analysis') {
+            def scannerHome = tool 'SonarScanner 4.0';
+            withSonarQubeEnv('My SonarQube Server') {
+              sh "${scannerHome}/bin/sonar-scanner"
             }
         }
         stage('Build') {
