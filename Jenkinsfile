@@ -1,11 +1,13 @@
 pipeline {
     agent any
+    tools {
+        maven 'M3'
+    }
     stages {
         stage('SonarQube Analysis') {
             steps {
-                def mvn = tool 'Default Maven';
                 withSonarQubeEnv("My SonarQube Server") {
-                    sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=DevOps-Demo"
+                    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=DevOps-Demo"
                 }
             }
         }
