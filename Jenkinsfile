@@ -7,7 +7,7 @@ pipeline {
         stage('SonarQube') {
             steps {
                 withSonarQubeEnv("My SonarQube Server") {
-                    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=devops-demo"
+                    sh "mvn clean verify sonar:sonar -Dsonar.projectKey=devops-demo -Dsonar.sources=src/*"
                 }
             }
         }
