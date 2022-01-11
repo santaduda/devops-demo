@@ -13,7 +13,12 @@ pipeline {
         }
         stage("Quality gate") {
             steps {
-                waitForQualityGate abortPipeline: true
+                waitForQualityGate ()
+                if (qg.status != 'OK') {
+                    echo "Quality gate passed"
+                } else {
+                    echo "Quality gate failed!"
+                }
             }
         }
         stage('Build') {
