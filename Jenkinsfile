@@ -12,14 +12,12 @@ pipeline {
             }
         }
         stage("Quality gate") {
-            steps {
-                def qg = waitForQualityGate abortPipeline: true
+                def qg = waitForQualityGate()
                 if (qg.status != 'OK') {
                     echo "QG Failed"
                 } else {
                     echo "QG Passed"
                 }
-            }
         }
         stage('Build') {
             steps {
