@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE >
+<html>
 
 <head>
 	<title>A page written in english</title>
