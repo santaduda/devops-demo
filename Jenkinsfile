@@ -21,7 +21,7 @@ pipeline {
                               script: 'git --no-pager show -s --format=\'%ae\'',
                               returnStdout: true
                         ).trim()
-                        mail bcc: '', body: 'Build failed!.', cc: 'santaduda@gmail.com', from: '', replyTo: '', subject: 'Quality Gate failed', to: ${committerEmail}
+                        mail bcc: '', body: 'Build failed!.', cc: 'santaduda@gmail.com', from: '', replyTo: '', subject: 'Quality Gate failed', to: "${committerEmail}"
                         error "Pipeline aborted due to quality gate failure: ${qg.status}"
                       
                     }
