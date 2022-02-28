@@ -24,7 +24,6 @@ pipeline {
                         ).trim()
                         mail bcc: '', body: 'Build failed!.', cc: 'santaduda@gmail.com', from: '', replyTo: '', subject: 'Quality Gate failed', to: "${committerEmail}"
                         error "Pipeline aborted due to quality gate failure: ${qg.status}"
-                      
                     }
                   }
                 }
