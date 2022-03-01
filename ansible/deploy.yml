@@ -1,0 +1,10 @@
+---
+- name: Deploy webapp to tomcat server
+  hosts: web-servers
+  become: true
+
+  tasks:
+  - name: Copy WebApp.jar file to the tomcat webapps folder
+    copy:
+        src: ../target/WebApp.war
+        dest: /usr/local/apache-tomcat-9.0.58/webapps/

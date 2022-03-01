@@ -40,7 +40,7 @@ pipeline {
         }  
         stage('Deploy') {
             steps {
-                echo("Deploy completed.")
+                ansiblePlaybook become: true, credentialsId: 'tomcat', installation: 'ansible', inventory: 'ansible/hosts', playbook: 'ansible/deploy.yml'
             }
         }
     }
